@@ -1,0 +1,9 @@
+sourceCompatibility = 1.7
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+sourceSets.main.java.srcDirs = ["build/generated-sources", "src/" ]
+
+eclipse.project.name = appName + "-core"
+
+tasks.getByName("build").mustRunAfter("createBundleLines").mustRunAfter("createAssetEnums")
+tasks.getByName("build").dependsOn("createBundleLines").dependsOn("createAssetEnums")
